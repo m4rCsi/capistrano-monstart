@@ -1,6 +1,6 @@
 namespace :monit do
   desc "Install Monit"
-  task :install do
+  task :installl do
     on roles :all do 
       execute :sudo, "yum -y install monit"
     end
