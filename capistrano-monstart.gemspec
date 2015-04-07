@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Marc Siegenthaler"]
 	s.email       = 'shin@marcsi.ch'
 	s.files       = `git ls-files`.split($/)
-	s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
 	s.test_files    = s.files.grep(%r{^(test|spec|features)/})
 	s.require_paths = ["lib"]
   s.homepage    =
@@ -19,7 +18,7 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
 
 	s.required_ruby_version = '>= 1.9.3'                                                                                                                                                          
-	s.add_dependency 'capistrano', '~> 3.1'
-	s.add_dependency 'foreman' 
+	s.add_dependency 'capistrano', 	'~> 3.1'
+	s.add_dependency 'foreman', 		'~> 0.78'
 end
 
