@@ -1,0 +1,4 @@
+check process <%= name %> with pidfile "<%= pidfile %>"
+    start program = "/sbin/start <%= name %>"
+    stop program  = "/sbin/stop <%= name %>"
+    if 5 restarts within 5 cycles then timeout
