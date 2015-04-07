@@ -6,7 +6,7 @@ def erb(template, vars)
 end
 
 def template(template,to,vars ={})
-  res = erb(File.expand_path("config/deploy/templates/#{template}", ROOTDIR),vars)
+	res = erb(File.expand_path("templates/#{template}", File.dirname(__FILE__)),vars)
   tmp_file = "/tmp/cap_erb_tmp_file"
   upload! StringIO.new(res), tmp_file
   execute :sudo, "mv #{tmp_file} #{to}"
