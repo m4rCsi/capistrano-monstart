@@ -1,6 +1,6 @@
 namespace :load do
   task :defaults do
-		set :monstart_procfile, -> { "" }
+		set :monstart_procfile, -> { Dir.pwd + "/Procfile" }
   end
 end
 

@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'capistrano-monstart'
   s.version     = Capistrano::Monstart::VERSION
   s.summary     = "capistrano plugin which converts foreman procfile to monit and upstart"
-  s.description = ""
+  s.description = "capistrano plugin which converts foreman procfile to monit and upstart"
   s.authors     = ["Marc Siegenthaler"]
 	s.email       = 'shin@marcsi.ch'
 	s.files       = `git ls-files`.split($/)
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
 	s.required_ruby_version = '>= 1.9.3'                                                                                                                                                          
 	s.add_dependency 'capistrano', 	'~> 3.4'
-	s.add_dependency 'capistrano-templ', '~> 0.0.1'
+	s.add_dependency 'capistrano-templ', '~> 0.1.0'
 	s.add_dependency 'foreman', 		'~> 0.78'
 end
 
