@@ -2,7 +2,6 @@ lib = File.expand_path('../lib',__FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'capistrano/monstart/version'
 
-
 Gem::Specification.new do |s|
   s.name        = 'capistrano-monstart'
   s.version     = Capistrano::Monstart::VERSION
@@ -18,7 +17,8 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
 
 	s.required_ruby_version = '>= 1.9.3'                                                                                                                                                          
-	s.add_dependency 'capistrano', 	'~> 3.1'
+	s.add_dependency 'capistrano', 	'~> 3.4'
+	s.add_dependency 'capistrano-templ', '~> 0.0.1'
 	s.add_dependency 'foreman', 		'~> 0.78'
 end
 

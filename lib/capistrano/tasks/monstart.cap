@@ -1,41 +1,41 @@
+
 namespace :load do
   task :defaults do
 		set :monstart_procfile, -> { "" }
-    #set :monit_bin, -> { '/usr/bin/monit' }
-    #set :sidekiq_monit_default_hooks, -> { true }
   end
 end
 
 namespace :monstart do
+	desc "sets up monstart files"
   task :setup do
     on roles :all do 
-			#procs = Capistrano::Monstart::Procs.new(fetch(:monstart_procfile))
-      #procs.procs.each_process do |n, process|
-        #name =  fetch(:application) + "-#{n}"
-        #exe =   process.command
+			procs = Capistrano::Monstart::Procs.new(fetch(:monstart_procfile))
+			procs.procs.each_process do |n, process|
+				name =  fetch(:application) + "-#{n}"
+				exe =   process.command
 
-        #d = {
-          #current_path: current_path,
-          #pidfile:      "/var/run/#{name}.pid",
-          #name:         name,
-          #wrapper:      fetch(:rvm1_alias_name),
-          #exe:          exe 
-        #}
+				d = {
+					current_path: current_path,
+					pidfile:      "/var/run/#{name}.pid",
+					name:         name,
+					wrapper:      fetch(:rvm1_alias_name),
+					exe:          exe 
+				}
 
-        #template 'upstart.conf.erb',  "/etc/init/#{name}.conf", d
-        #template 'monit.erb',         "/etc/monit.d/#{name}",   d
-      #end
-    end
+				template 'upstart.conf.erb',  "/etc/init/#{name}.conf", d
+				template 'monit.erb',         "/etc/monit.d/#{name}",   d
+			end
+		end
   end
 
   task :restart do 
     on roles :all do 
-			#procs = Capistrano::Monstart::Procs.new(fetch(:monstart_procfile))
-      #procs.procs.each_process do |n, process|
-				#name =  fetch(:application) + "-#{n}"
+			procs = Capistrano::Monstart::Procs.new(fetch(:monstart_procfile))
+			procs.procs.each_process do |n, process|
+				name =  fetch(:application) + "-#{n}"
 
-				#execute  :sudo, :monit, :restart, name
-      #end
+				execute  :sudo, :monit, :restart, name
+			end
     end
   end
 
