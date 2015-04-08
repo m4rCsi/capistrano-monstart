@@ -1,12 +1,12 @@
-require 'capistrano/monstart/version'
+require 'capistrano/templ'
 
 module Capistrano
 	module Monstart
 	end
 end
 
-require 'capistrano/monstart/template'
 require 'capistrano/monstart/foreman'
 
-load File.expand_path('../tasks/monstart.cap', __FILE__)
-load File.expand_path('../tasks/monit.cap', __FILE__)
+# Load Tasks
+load File.expand_path('../monstart/tasks/monstart.cap', __FILE__)
+load File.expand_path('../monstart/tasks/monit.cap', __FILE__)
